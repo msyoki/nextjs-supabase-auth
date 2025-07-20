@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import Link from "next/link";
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL as string, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string);
 
@@ -22,8 +23,8 @@ const PasswordReset: React.FC = () => {
     return (
         <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
             <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-
-            <form onSubmit={handleReset}>
+                <h2 className='my-2'>Send Reset Link ( Only works if you have an account )</h2>
+                <form onSubmit={handleReset}>
             <input
                 type="email"
                 value={email}
@@ -31,7 +32,9 @@ const PasswordReset: React.FC = () => {
                 placeholder="Enter your email"
                 required
             />
-            <button className='my-4' type="submit">Reset Password</button>
+                    <Link href='/login'>  <button className='my-2'>Cancel / Go to Login</button></Link>
+            <button className='my-4 mx-2' type="submit">Reset Password</button>
+
             {message && <p>{message}</p>}
         </form>
             </main>

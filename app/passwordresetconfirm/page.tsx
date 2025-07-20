@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@supabase/supabase-js'
+import Link from "next/link";
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -49,13 +50,14 @@ const UpdatePassword = () => {
             <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
 
             <div>
-            <h2>Set a New Password</h2>
+            <h2 className='my-2'>Set a New Password</h2>
             <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="New password"
             />
+                <Link href='/login'>  <button className='my-2'>Cancel / Go to Login</button></Link>
             <button className='my-4' onClick={handleSubmit}>Update Password</button>
             {message && <p>{message}</p>}
         </div>
