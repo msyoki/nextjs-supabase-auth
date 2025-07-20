@@ -9,7 +9,7 @@ export default function LoginPage() {
                     <input id="email" name="email" type="email" required />
                     <label htmlFor="password">Password:</label>
                     <input id="password" name="password" type="password" required />
-                    <div className='my-2'>
+                    <div className="space-x-4 my-4" >
                         <button formAction={login} className='mx-1'>Log in</button>
                         <button formAction={signup} className='mx-1'>Sign up</button>
                     </div>
